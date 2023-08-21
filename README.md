@@ -1,0 +1,1 @@
+Yandex Practicum boilerplate to start a project with a linter and a formatter.
