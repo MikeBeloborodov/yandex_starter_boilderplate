@@ -9,7 +9,7 @@
 
 @media screen and (width > 1000px) {
 
-  .my-div__title {
-    color: black;
+  .my-div__text {
+    color: purple;
   }
 }
