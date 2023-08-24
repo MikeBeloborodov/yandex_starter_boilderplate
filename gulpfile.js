@@ -8,6 +8,7 @@ const autoprefixer = require('autoprefixer');
 const media_query = require('postcss-combine-media-query');
 const cssnano = require('cssnano');
 const htmlMinify = require('html-minifier');
+const jsMinify = require('gulp-minify');
 
 function html() {
   const options = {
@@ -51,6 +52,17 @@ function images() {
     .pipe(browserSync.reload({ stream: true }));
 }
 
+function scripts() {
+  return gulp.src('src/scripts/**/*.js')
+    .pipe(jsMinify({
+      ext: {
+        min: '.js'
+      },
+      noSource: true
+    }))
+    .pipe(gulp.dest('dist/scripts'))
+}
+
 function fonts() {
   return gulp.src('src/fonts/**/*.{ttf,woff,woff2}')
     .pipe(gulp.dest('dist/fonts'))
@@ -73,6 +85,7 @@ function watchFiles() {
   gulp.watch(['src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
   gulp.watch(['src/fonts/**/*.{ttf,woff,woff2}'], fonts);
   gulp.watch(['src/videos/**/*.{avi,mp4,webm}'], videos);
+  gulp.watch(['src/scripts/**/*.{js}'], scripts);
 }
 
 function serve() {
@@ -83,7 +96,7 @@ function serve() {
   });
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, images, fonts, videos));
+const build = gulp.series(clean, gulp.parallel(html, css, images, fonts, videos, scripts));
 const watchapp = gulp.parallel(build, watchFiles, serve);
 
 exports.html = html;
@@ -91,6 +104,7 @@ exports.css = css;
 exports.images = images;
 exports.fonts = fonts;
 exports.videos = videos;
+exports.scripts = scripts;
 exports.clean = clean;
 exports.build = build;
 exports.watchFiles = watchFiles;
