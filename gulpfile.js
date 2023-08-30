@@ -38,7 +38,7 @@ function css() {
     media_query(),
     cssnano()
   ];
-  return gulp.src('src/blocks/**/*.css')
+  return gulp.src('src/**/*.css')
     .pipe(plumber())
     .pipe(concat('bundle.css'))
     .pipe(postcss(plugins))
