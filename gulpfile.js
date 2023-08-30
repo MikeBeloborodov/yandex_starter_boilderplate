@@ -38,7 +38,7 @@ function css() {
     media_query(),
     cssnano()
   ];
-  return gulp.src('src/**/*.css')
+  return gulp.src('src/styles/**/*.css')
     .pipe(plumber())
     .pipe(concat('bundle.css'))
     .pipe(postcss(plugins))
@@ -81,7 +81,7 @@ function clean() {
 
 function watchFiles() {
   gulp.watch(['src/**/*.html'], html);
-  gulp.watch(['src/blocks/**/*.css'], css);
+  gulp.watch(['src/styles/**/*.css'], css);
   gulp.watch(['src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
   gulp.watch(['src/fonts/**/*.{ttf,woff,woff2}'], fonts);
   gulp.watch(['src/videos/**/*.{avi,mp4,webm}'], videos);
