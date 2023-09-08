@@ -14,7 +14,7 @@
     "build": "gulp build",
     "dev": "gulp",
     "lfa": "npm run fixAll && git add .",
-    "send": "npm run fixAll && git add . && git commit -m ${COMMENT} && git push origin main"
+    "send": "npm run fixAll && git add . && git commit -m '${COMMENT}' && git push origin main"
   },
   "author": "",
   "license": "ISC",
