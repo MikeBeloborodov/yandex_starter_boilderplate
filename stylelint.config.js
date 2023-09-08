@@ -1,3 +1,9 @@
+// for SCSS
+module.exports = {
+    "extends": "stylelint-config-standard-scss"
+} 
+// for CSS
+/*
 module.exports = {
   rules: {
     'color-no-invalid-hex': true,
@@ -28,3 +34,4 @@ module.exports = {
     'font-family-name-quotes': 'always-where-recommended',
   },
 };
+*/

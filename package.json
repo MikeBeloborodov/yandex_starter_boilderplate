@@ -13,8 +13,7 @@
     "fixAll": "npm run format && npm run lintfix",
     "build": "gulp build",
     "dev": "gulp",
-    "lfa": "npm run fixAll && git add .",
-    "send": "npm run fixAll && git add . && git commit -m '%COMMENT%' && git push origin main"
+    "lfa": "npm run fixAll && git add ."
   },
   "author": "",
   "license": "ISC",
@@ -34,7 +33,8 @@
     "postcss-combine-media-query": "^1.0.1",
     "prettier": "^3.0.2",
     "sass": "^1.66.1",
-    "stylelint": "^15.10.3"
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^11.0.0"
   },
   "browserslist": [
     "last 5 versions"
